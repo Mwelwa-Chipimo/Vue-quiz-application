@@ -115,7 +115,7 @@ var Quiz = new Vue({
     methods: {
         checkSubmission: function() {
             console.log('Checking the user submission!');
-            
+            this.totalAnswered = 0;
             this.errors= [];
 
             for(let i = 0; i < this.questions.length; i++) {
