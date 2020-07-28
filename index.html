@@ -7,27 +7,46 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Quiz Page</title>
        
-        <!-- CSS only -->
+        <!-- Bootstrap CDN-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="stylesheet.css">
     </head>
     <body>
 
         <div id="app">
             <div class="container">
-            <h1>Quiz Page</h1>
-            <h2>Quiz</h2>
-            
-            <h3>This is rendered from the 'question' component.</h3>
+                <h1>Quiz Page</h1>
+                <h2>Quiz</h2>
+                
+                <h3>This is rendered from the 'question' component.</h3>
 
-            <div>
-                <!--Question Number-->
-                <h4>Question {{questionNum}}</h4>
+                <p v-if="totalAnswered">
+                    <b>Your total score was {{ totalScore }}.</b>                 
+                </p>
 
-                <question v-for="qst in questions"
-                :key="qst.id"
-                :qst="qst"></question>
-            </div>
+                <p v-if="errors.length">
+                    <b>You have not yet answered the following question(s):</b>
+                    <ul>
+                        <li v-for="error in errors">{{error}}</li>
+                    </ul>
+                </p>
 
+                <div class="row">
+                    <div class="col">
+                        <form @submit.prevent="checkSubmission">                   
+                            <!-- <h4>Question {{questionNum}}</h4> -->
+
+                            <quiz-question v-for="question in questions"
+                            :key="question.qstId"
+                            :question="question"></quiz-question>
+
+                            <button class="btn btn-success btn-lg" type="submit">Submit</button>
+                        </form>                      
+                        
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -40,6 +59,24 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
     <script src="main.js" async defer></script>
+
+    <script type="text/x-template" id="question-template">
+
+        <!-- <h4>{{qst.text}}</h4>
+
+        <label for="optionA">{{qst.optA}}</label>
+        <input id="optionA" type="radio" v-model="qst.userInput" value="A">
+
+        <label for="optionB">{{qst.optB}}</label>
+        <input id="optionB" type="radio" v-model="qst.userInput" value="B">
+
+        <label for="optionC">{{qst.optC}}</label>
+        <input id="optionC" type="radio" v-model="qst.userInput" value="C">
+
+        <label for="optionD">{{qst.optD}}</label>
+        <input id="optionD" type="radio" v-model="qst.userInput" value="D"> -->
+    
+      </script>
 
     </body>
 </html>
