@@ -16,35 +16,10 @@
     <body>
 
         <div id="app">
-            <div class="container">
-                <h1>Quiz Page</h1>
-                <h2>Quiz</h2>
-                
-                <h3>This is rendered from the 'question' component.</h3>
-
-                <p v-if="totalAnswered">
-                    <b>Your total score was {{ totalScore }}.</b>                 
-                </p>
-
-                <p v-if="errors.length">
-                    <b>You have not yet answered the following question(s):</b>
-                    <ul>
-                        <li v-for="error in errors">{{error}}</li>
-                    </ul>
-                </p>
-
+            <div class="container"> <!-- Quiz form container -->
                 <div class="row">
                     <div class="col">
-                        <form @submit.prevent="checkSubmission">                   
-                            <!-- <h4>Question {{questionNum}}</h4> -->
-
-                            <quiz-question v-for="question in questions"
-                            :key="question.qstId"
-                            :question="question"></quiz-question>
-
-                            <button class="btn btn-success btn-lg" type="submit">Submit</button>
-                        </form>                      
-                        
+                        <quiz-form></quiz-form>
                     </div>
                 </div>
             </div>
@@ -56,27 +31,76 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    
+    <script src="https://unpkg.com/vue"></script>
     <script src="main.js" async defer></script>
 
-    <script type="text/x-template" id="question-template">
+    <script type="text/x-template" id="quiz-form-template">
+        <div>
+            <h1>Quiz Page</h1>
+            <h2>Quiz</h2>
+            
+            <h3>This is section is rendered from the 'question' component.</h3>
 
-        <!-- <h4>{{qst.text}}</h4>
+            <p v-if="totalAnswered">
+                <b>Your total score was {{ totalScore }}.</b>                 
+            </p>
 
-        <label for="optionA">{{qst.optA}}</label>
-        <input id="optionA" type="radio" v-model="qst.userInput" value="A">
+            <p v-if="errors.length">
+                <b>You have not yet answered the following question(s):</b>
+                <ul>
+                    <li v-for="error in errors">{{error}}</li>
+                </ul>
+            </p>
+        
+            <form @submit.prevent="checkSubmission">
 
-        <label for="optionB">{{qst.optB}}</label>
-        <input id="optionB" type="radio" v-model="qst.userInput" value="B">
+            <quiz-question v-for="question in questions"
+                :key="question.qstId"
+                :isCompleted="isCompleted"
+                :question="question"></quiz-question>
 
-        <label for="optionC">{{qst.optC}}</label>
-        <input id="optionC" type="radio" v-model="qst.userInput" value="C">
+                <button class="btn btn-success btn-lg" type="submit">Submit</button>
+            </form>
+        </div>
+    </script>
 
-        <label for="optionD">{{qst.optD}}</label>
-        <input id="optionD" type="radio" v-model="qst.userInput" value="D"> -->
-    
-      </script>
+    <script type="text/x-template" id="quiz-question-template">
+        <div>
+            <div class="form-group">
+                <h3>Question {{question.qstId}}</h3>
+                <h4>{{question.qstText}}</h4>
+            </div>
+            <div class="form-group">
+                <input v-model="question.userInput" class="form-check-input" type="radio" :id=" 'radio-A' + question.qstId " value="A">
+                <label class="form-check-label" :for=" 'radio-A' + question.qstId ">
+                    {{question.optA}}
+                </label>
+            </div>
+            <div class="form-group">
+                <input v-model="question.userInput" class="form-check-input" type="radio" :id=" 'radio-B' + question.qstId " value="B">
+                <label class="form-check-label" :for=" 'radio-B' + question.qstId ">
+                    {{question.optB}}
+                </label>
+            </div>
+            <div class="form-group">
+                <input v-model="question.userInput" class="form-check-input" type="radio" :id=" 'radio-C' + question.qstId " value="C">
+                <label class="form-check-label" :for=" 'radio-C' + question.qstId ">
+                    {{question.optC}}
+                </label>
+            </div>
+            <div class="form-group">
+                <input v-model="question.userInput" class="form-check-input" type="radio" :id=" 'radio-D' + question.qstId " value="D">
+                <label class="form-check-label" :for=" 'radio-D' + question.qstId ">
+                    {{question.optD}}
+                </label>
+            </div>
+
+            <p v-if="isCompleted">
+                {{question.explanation}}
+            </p>
+        </div>   
+    </script>
 
     </body>
 </html>
