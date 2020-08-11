@@ -8,12 +8,20 @@ let QuizQuestionComponent = {
     template: '#quiz-question-template'
 }
 
+var QuizReportComponent  = {
+    template: '#quiz-report-template',
+    props: {
+        isCompleted: Boolean
+    }
+
+}
 
 var QuizFormComponent = {
     template: '#quiz-form-template',
 
     components: {
-        'quiz-question': QuizQuestionComponent
+        'quiz-question': QuizQuestionComponent,
+        'quiz-report': QuizReportComponent
     },
 
     data() {
@@ -89,6 +97,7 @@ var QuizFormComponent = {
             this.errors= [];
 
             for(let i = 0; i < this.questions.length; i++) {
+                //Check if the user has answered the question.
                 this.questions[i].userInput === null ? this.errors.push(`Question ${this.questions[i].qstId}`) : 
                 this.totalAnswered++;
             }
@@ -108,6 +117,7 @@ var QuizFormComponent = {
             this.totalScore = 0;
 
             for(let i = 0; i < this.questions.length; i++) {
+                //Check if the user's answer is correct.
                 this.questions[i].userInput == this.questions[i].correctAns ? this.totalScore++ : 
                 console.log(`You got question ${this.questions[i].qstId} wrong.`);
             }

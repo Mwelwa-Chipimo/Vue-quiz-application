@@ -35,6 +35,7 @@
     <script src="https://unpkg.com/vue"></script>
     <script src="main.js" async defer></script>
 
+    <!--Quiz Form Template-->
     <script type="text/x-template" id="quiz-form-template">
         <div>
             <h1>Quiz Page</h1>
@@ -62,9 +63,12 @@
 
                 <button class="btn btn-success btn-lg" type="submit">Submit</button>
             </form>
+
+            <quiz-report :isCompleted="isCompleted"></quiz-report>
         </div>
     </script>
 
+    <!-- Quiz Question Template-->
     <script type="text/x-template" id="quiz-question-template">
         <div>
             <div class="form-group">
@@ -80,7 +84,7 @@
             <div class="form-group">
                 <input v-model="question.userInput" class="form-check-input" type="radio" :id=" 'radio-B' + question.qstId " value="B">
                 <label class="form-check-label" :for=" 'radio-B' + question.qstId ">
-                    {{question.optB}}
+                   {{question.optB}}
                 </label>
             </div>
             <div class="form-group">
@@ -97,9 +101,26 @@
             </div>
 
             <p v-if="isCompleted">
-                {{question.explanation}}
+                <b>Explanation:</b> {{question.explanation}}
             </p>
         </div>   
+    </script>
+
+    <!-- Quiz Report Template-->
+    <script type="text/x-template" id="quiz-report-template">
+        <div v-if="isCompleted">
+            <h2>This is the report section of the quiz</h2>
+
+            <p>Your total score was 5 out of 5</p>
+
+            <h3>Feedback</h3>
+
+            <p>You have a good understanding of the following topics:</p>
+
+            <p>However you need to go over the following topics:</p>
+
+            <p>You can view the explanations to the questions above.</p>
+        </div>
     </script>
 
     </body>
