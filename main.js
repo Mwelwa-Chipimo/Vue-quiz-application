@@ -1,5 +1,11 @@
 let QuizQuestionComponent = {
 
+    data() {
+        return {
+            show: false
+        }
+    },
+
     props: {
         isCompleted: Boolean,
         question: Object
@@ -109,7 +115,6 @@ var QuizFormComponent = {
                 this.isCompleted = true;
                 alert("Your answers have been marked. You can view the explanations now.");
                 this.markAnswers();
-
             }
         },
 

@@ -100,9 +100,19 @@
                 </label>
             </div>
 
-            <p v-if="isCompleted">
-                <b>Explanation:</b> {{question.explanation}}
-            </p>
+            <div v-if="isCompleted">
+                <div id="demo">
+                    <button v-on:click="show = !show">
+                      Show explanation
+                    </button>
+                    <transition name="fade">
+                      <p v-if="show">
+                      <b>Explanation:</b> {{question.explanation}}
+                    </p>
+                    </transition>
+                </div>
+            </div>
+
         </div>   
     </script>
 
