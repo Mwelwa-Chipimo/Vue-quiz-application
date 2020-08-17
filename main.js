@@ -53,10 +53,10 @@ var QuizFormComponent = {
                 {
                     qstId: 1,
                     qstText: "This is the text for question 1.",
-                    optA: "This is option A for question 1.",
-                    optB: "This is option B for question 1.",
-                    optC: "This is option C for question 1.",
-                    optD: "This is option D for question 1.",
+                    optA: "A. This is option A for question 1.",
+                    optB: "B. This is option B for question 1.",
+                    optC: "C. This is option C for question 1.",
+                    optD: "D. This is option D for question 1.",
                     userInput: null,
                     correctAns: "A",
                     explanation: "The correct answer is option A."
@@ -64,10 +64,10 @@ var QuizFormComponent = {
                 {
                     qstId: 2,
                     qstText: "This is the text for question 2.",
-                    optA: "This is option A for question 2.",
-                    optB: "This is option B for question 2.",
-                    optC: "This is option C for question 2.",
-                    optD: "This is option D for question 2.",
+                    optA: "A. This is option A for question 2.",
+                    optB: "B. This is option B for question 2.",
+                    optC: "C. This is option C for question 2.",
+                    optD: "D. This is option D for question 2.",
                     userInput: null,
                     correctAns: "B",
                     explanation: "The correct answer is option B."
@@ -75,10 +75,10 @@ var QuizFormComponent = {
                 {
                     qstId: 3,
                     qstText: "This is the text for question 3.",
-                    optA: "This is option A for question 3.",
-                    optB: "This is option B for question 3.",
-                    optC: "This is option C for question 3.",
-                    optD: "This is option D for question 3.",
+                    optA: "A. This is option A for question 3.",
+                    optB: "B. This is option B for question 3.",
+                    optC: "C. This is option C for question 3.",
+                    optD: "D. This is option D for question 3.",
                     userInput: null,
                     correctAns: "C",
                     explanation: "The correct answer is option C."
@@ -86,10 +86,10 @@ var QuizFormComponent = {
                 {
                     qstId: 4,
                     qstText: "This is the text for question 4.",
-                    optA: "This is option A for question 4.",
-                    optB: "This is option B for question 4.",
-                    optC: "This is option C for question 4.",
-                    optD: "This is option D for question 4.",
+                    optA: "A. This is option A for question 4.",
+                    optB: "B. This is option B for question 4.",
+                    optC: "C. This is option C for question 4.",
+                    optD: "D. This is option D for question 4.",
                     userInput: null,
                     correctAns: "D",
                     explanation: "The correct answer is option D."
@@ -97,10 +97,10 @@ var QuizFormComponent = {
                 {
                     qstId: 5,
                     qstText: "This is the text for question 5.",
-                    optA: "This is option A for question 5.",
-                    optB: "This is option B for question 5.",
-                    optC: "This is option C for question 5.",
-                    optD: "This is option D for question 5.",
+                    optA: "A. This is option A for question 5.",
+                    optB: "B. This is option B for question 5.",
+                    optC: "C. This is option C for question 5.",
+                    optD: "D. This is option D for question 5.",
                     userInput: null,
                     correctAns: "A",
                     explanation: "The correct answer is option A."

@@ -72,13 +72,15 @@
     <!-- Question Answer Show Explanation Template -->
     <script type="text/x-template" id="quiz-ans-explanation-template">
         <div id="demo">
-            <div class="btn btn-sm btn-primary" v-on:click="show = !show">
-              Show explanation
-            </div>
+            <a v-on:click="show = !show">
+              <span class="show-explanation">Show explanation</span>
+            </a>
             <transition name="fade">
-              <p v-if="show">
-              <b>Explanation:</b> {{question.explanation}}
-            </p>
+            <div class="explanation">
+                <p v-if="show">
+                    <b>Explanation:</b> {{question.explanation}}
+                </p>
+            </div>
             </transition>
         </div>
     </script>

@@ -22,24 +22,38 @@
   
 .radio-toolbar label {
       /* display: inline-block; */
-      background-color: #ddd;
+      background-color: #fff;
       padding: 10px 20px;
       font-family: sans-serif, Arial;
       font-size: 16px;
-      border: 2px solid #444;
+      border: 1px solid #0275d8;
       border-radius: 4px;
   }
   
 .radio-toolbar label:hover {
-    background-color: #dfd;
+    background-color: #e7f3fe;
+    border-color:  #e7f3fe;
+    border: 1px solid #e7f3fe;;
+    color:  #0275d8;
+    transform: scale(1.03);
   }
   
 .radio-toolbar input[type="radio"]:focus + label {
-      border: 2px dashed #444;
+      border: 1px solid #0275d8;
   }
   
 .radio-toolbar input[type="radio"]:checked + label {
-      background-color: #bfb;
-      border-color: #4c4;
+      background-color: #2393f6;
+      border-color: #2393f6;
+      color: #fff;
+      transform: scale(1.03);
   }
-  
+
+.show-explanation {
+    cursor: pointer;
+    color: #2393f6;
+}
+
+.explanation {
+    background-color: #f9f9f9;
+}
