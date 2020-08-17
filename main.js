@@ -1,13 +1,24 @@
-let QuizQuestionComponent = {
+var QuizAnsExplanationComponent = {
+    template: "#quiz-ans-explanation-template",
+    props: {
+        question: Object
+    },
 
     data() {
         return {
             show: false
         }
+    }
+}
+
+let QuizQuestionComponent = {
+    components: {
+        'quiz-ans-explanation': QuizAnsExplanationComponent
     },
 
     props: {
         isCompleted: Boolean,
+        isDisabled: Boolean,
         question: Object
     },
 
@@ -27,7 +38,9 @@ var QuizFormComponent = {
 
     components: {
         'quiz-question': QuizQuestionComponent,
-        'quiz-report': QuizReportComponent
+        'quiz-report': QuizReportComponent,
+        'quiz-ans-explanation': QuizAnsExplanationComponent
+
     },
 
     data() {
@@ -96,9 +109,15 @@ var QuizFormComponent = {
         }
     },
 
+    computed: {
+        isDisabled () {
+            return this.isCompleted
+        }
+    },
+
     methods: {
         checkSubmission: function() {
-            console.log('Checking the user submission!');
+            //console.log('Checking the user submission!');
             this.totalAnswered = 0;
             this.errors= [];
 
@@ -111,9 +130,9 @@ var QuizFormComponent = {
             console.log('The length of the questions array is ' + this.questions.length);
 
             if(this.totalAnswered == this.questions.length) {
-                alert("Your answers are being marked.");
+                //alert("Your answers are being marked.");
                 this.isCompleted = true;
-                alert("Your answers have been marked. You can view the explanations now.");
+                //alert("Your answers have been marked. You can view the explanations now.");
                 this.markAnswers();
             }
         },

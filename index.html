@@ -59,12 +59,27 @@
             <quiz-question v-for="question in questions"
                 :key="question.qstId"
                 :isCompleted="isCompleted"
-                :question="question"></quiz-question>
+                :question="question"
+                :isDisabled="isDisabled"></quiz-question>
 
                 <button class="btn btn-success btn-lg" type="submit">Submit</button>
             </form>
 
             <quiz-report :isCompleted="isCompleted"></quiz-report>
+        </div>
+    </script>
+
+    <!-- Question Answer Show Explanation Template -->
+    <script type="text/x-template" id="quiz-ans-explanation-template">
+        <div id="demo">
+            <div class="btn btn-sm btn-primary" v-on:click="show = !show">
+              Show explanation
+            </div>
+            <transition name="fade">
+              <p v-if="show">
+              <b>Explanation:</b> {{question.explanation}}
+            </p>
+            </transition>
         </div>
     </script>
 
@@ -75,42 +90,34 @@
                 <h3>Question {{question.qstId}}</h3>
                 <h4>{{question.qstText}}</h4>
             </div>
-            <div class="form-group">
-                <input v-model="question.userInput" class="form-check-input" type="radio" :id=" 'radio-A' + question.qstId " value="A">
-                <label class="form-check-label" :for=" 'radio-A' + question.qstId ">
-                    {{question.optA}}
-                </label>
-            </div>
-            <div class="form-group">
-                <input v-model="question.userInput" class="form-check-input" type="radio" :id=" 'radio-B' + question.qstId " value="B">
-                <label class="form-check-label" :for=" 'radio-B' + question.qstId ">
-                   {{question.optB}}
-                </label>
-            </div>
-            <div class="form-group">
-                <input v-model="question.userInput" class="form-check-input" type="radio" :id=" 'radio-C' + question.qstId " value="C">
-                <label class="form-check-label" :for=" 'radio-C' + question.qstId ">
-                    {{question.optC}}
-                </label>
-            </div>
-            <div class="form-group">
-                <input v-model="question.userInput" class="form-check-input" type="radio" :id=" 'radio-D' + question.qstId " value="D">
-                <label class="form-check-label" :for=" 'radio-D' + question.qstId ">
-                    {{question.optD}}
-                </label>
+
+            <div class="radio-toolbar">
+                
+                    <input v-model="question.userInput" class="form-check-input" type="radio" :id=" 'radio-A' + question.qstId " value="A" :disabled="isDisabled">
+                    <label class="form-check-label" :for=" 'radio-A' + question.qstId ">
+                        {{question.optA}}
+                    </label>
+                
+                
+                    <input v-model="question.userInput" class="form-check-input" type="radio" :id=" 'radio-B' + question.qstId " value="B" :disabled="isDisabled">
+                    <label class="form-check-label" :for=" 'radio-B' + question.qstId ">
+                    {{question.optB}}
+                    </label>
+                
+                    <input v-model="question.userInput" class="form-check-input" type="radio" :id=" 'radio-C' + question.qstId " value="C" :disabled="isDisabled">
+                    <label class="form-check-label" :for=" 'radio-C' + question.qstId ">
+                        {{question.optC}}
+                    </label>
+                
+                    <input v-model="question.userInput" class="form-check-input" type="radio" :id=" 'radio-D' + question.qstId " value="D" :disabled="isDisabled">
+                    <label class="form-check-label" :for=" 'radio-D' + question.qstId ">
+                        {{question.optD}}
+                    </label>
+                
             </div>
 
             <div v-if="isCompleted">
-                <div id="demo">
-                    <button v-on:click="show = !show">
-                      Show explanation
-                    </button>
-                    <transition name="fade">
-                      <p v-if="show">
-                      <b>Explanation:</b> {{question.explanation}}
-                    </p>
-                    </transition>
-                </div>
+                <quiz-ans-explanation :question="question"></quiz-ans-explanation>
             </div>
 
         </div>   
