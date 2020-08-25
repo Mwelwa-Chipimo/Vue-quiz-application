@@ -35,34 +35,45 @@
     <script src="https://unpkg.com/vue"></script>
     <script src="main.js" async defer></script>
 
+    
+
     <!--Quiz Form Template-->
     <script type="text/x-template" id="quiz-form-template">
         <div>
-            <h1>Quiz Page</h1>
-            <h2>Quiz</h2>
+            <h1>Quiz: ECO2004S </h1>
             
-            <h3>This is section is rendered from the 'question' component.</h3>
+            <p id="title">This is a simple quiz designed to help you with your studies as you learn from home.</p>
+
+            <div id="instructions">
+                <h5>Instructions</h5>
+
+                <p>Be sure to <span><strong>ANSWER ALL QUESTIONS</strong></span> before you submit your quiz.</p>
+            </div>
 
             <p v-if="totalAnswered">
                 <b>Your total score was {{ totalScore }}.</b>                 
             </p>
 
-            <p v-if="errors.length">
-                <b>You have not yet answered the following question(s):</b>
-                <ul>
-                    <li v-for="error in errors">{{error}}</li>
-                </ul>
-            </p>
+            <div id="feedback-header">
+                <p v-if="errors.length">
+                    <b>You have not yet answered the following question(s):</b>
+                    <ul>
+                        <li v-for="error in errors">{{error}}</li>
+                    </ul>
+                </p>
+            </div>
         
             <form @submit.prevent="checkSubmission">
-
+            
+            
             <quiz-question v-for="question in questions"
                 :key="question.qstId"
                 :isCompleted="isCompleted"
                 :question="question"
                 :isDisabled="isDisabled"></quiz-question>
 
-                <button class="btn btn-success btn-lg" type="submit">Submit</button>
+                <button :class="['btn', 'btn-lg', (isCompleted) ? 'btn-secondary' : 'btn-success' ]" type="submit" :disabled="isCompleted">
+                    {{ isCompleted ? 'Submitted' : 'Submit' }}</button>
             </form>
 
             <quiz-report :isCompleted="isCompleted"></quiz-report>
@@ -73,7 +84,7 @@
     <script type="text/x-template" id="quiz-ans-explanation-template">
         <div id="demo">
             <a v-on:click="show = !show">
-              <span class="show-explanation">Show explanation</span>
+              <span class="show-explanation">{{ !show ? 'Show explanation' : 'Hide explanation' }}</span>
             </a>
             <transition name="fade">
             <div class="explanation">
@@ -87,13 +98,14 @@
 
     <!-- Quiz Question Template-->
     <script type="text/x-template" id="quiz-question-template">
-        <div>
+        <div class="quiz-question">
             <div class="form-group">
                 <h3>Question {{question.qstId}}</h3>
                 <h4>{{question.qstText}}</h4>
             </div>
 
-            <div class="radio-toolbar">
+        <!--CHANGE TO BE MADE: CREATE A QUIZ RADIO OPTION COMPONENT -->
+            <div class="radio-toolbar row row-col-sm-1">
                 
                     <input v-model="question.userInput" class="form-check-input" type="radio" :id=" 'radio-A' + question.qstId " value="A" :disabled="isDisabled">
                     <label class="form-check-label" :for=" 'radio-A' + question.qstId ">
@@ -127,10 +139,10 @@
 
     <!-- Quiz Report Template-->
     <script type="text/x-template" id="quiz-report-template">
-        <div v-if="isCompleted">
-            <h2>This is the report section of the quiz</h2>
+        <div id="report-section" v-if="isCompleted">
+            <h2>Report</h2>
 
-            <p>Your total score was 5 out of 5</p>
+            <p>Total Score: <b>5</b></p>              
 
             <h3>Feedback</h3>
 

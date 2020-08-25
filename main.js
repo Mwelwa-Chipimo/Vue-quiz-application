@@ -1,3 +1,5 @@
+
+
 var QuizAnsExplanationComponent = {
     template: "#quiz-ans-explanation-template",
     props: {
@@ -6,7 +8,7 @@ var QuizAnsExplanationComponent = {
 
     data() {
         return {
-            show: false
+            show: false,
         }
     }
 }
@@ -33,6 +35,9 @@ var QuizReportComponent  = {
 
 }
 
+// CHANGE TO BE MADE
+// Make quiz form a global component.
+
 var QuizFormComponent = {
     template: '#quiz-form-template',
 
@@ -52,6 +57,7 @@ var QuizFormComponent = {
             questions: [
                 {
                     qstId: 1,
+                    category: 0,
                     qstText: "This is the text for question 1.",
                     optA: "A. This is option A for question 1.",
                     optB: "B. This is option B for question 1.",
@@ -63,6 +69,7 @@ var QuizFormComponent = {
                 },
                 {
                     qstId: 2,
+                    category: 1,
                     qstText: "This is the text for question 2.",
                     optA: "A. This is option A for question 2.",
                     optB: "B. This is option B for question 2.",
@@ -74,6 +81,7 @@ var QuizFormComponent = {
                 },
                 {
                     qstId: 3,
+                    category: 0,
                     qstText: "This is the text for question 3.",
                     optA: "A. This is option A for question 3.",
                     optB: "B. This is option B for question 3.",
@@ -85,6 +93,7 @@ var QuizFormComponent = {
                 },
                 {
                     qstId: 4,
+                    category: 1,
                     qstText: "This is the text for question 4.",
                     optA: "A. This is option A for question 4.",
                     optB: "B. This is option B for question 4.",
@@ -96,6 +105,7 @@ var QuizFormComponent = {
                 },
                 {
                     qstId: 5,
+                    category: 1,
                     qstText: "This is the text for question 5.",
                     optA: "A. This is option A for question 5.",
                     optB: "B. This is option B for question 5.",
@@ -105,13 +115,23 @@ var QuizFormComponent = {
                     correctAns: "A",
                     explanation: "The correct answer is option A."
                 }
-            ]
+            ],
+            categories: {
+                category_1: 0,
+                category_2: 0
+            }
         }
     },
 
+//  CHANGE TO BE MADE
+//  Add a computed property for the category breakdown (It shows users a breakdown of their performance by category).
     computed: {
         isDisabled () {
             return this.isCompleted
+        },
+
+        categoryBreakDown () {
+
         }
     },
 
@@ -142,7 +162,7 @@ var QuizFormComponent = {
 
             for(let i = 0; i < this.questions.length; i++) {
                 //Check if the user's answer is correct.
-                this.questions[i].userInput == this.questions[i].correctAns ? this.totalScore++ : 
+                this.questions[i].userInput == this.questions[i].correctAns ? this.totalScore++ && this.categories[this.questions[i].category]++: 
                 console.log(`You got question ${this.questions[i].qstId} wrong.`);
             }
         }
