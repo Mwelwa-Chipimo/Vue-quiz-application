@@ -6,6 +6,10 @@ body {
   background-color: #F4F5FA;
 }
 
+#quiz-body {
+  padding: 25px;
+}
+
 #title {
   margin-top: 15px;
   margin-bottom: 50px;
