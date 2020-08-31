@@ -58,63 +58,63 @@ var QuizFormComponent = {
                 {
                     qstId: 1,
                     category: 0,
-                    qstText: "This is the text for question 1.",
-                    optA: "A. This is option A for question 1.",
-                    optB: "B. This is option B for question 1.",
-                    optC: "C. This is option C for question 1.",
-                    optD: "D. This is option D for question 1.",
+                    qstText: "Which of the following must occur to sustain economic growth in the long-run?.",
+                    optA: "A. A higher saving rate.",
+                    optB: "B. Capital accumulation.",
+                    optC: "C. Technological progress.",
+                    optD: "D. All of the above.",
                     userInput: null,
-                    correctAns: "A",
-                    explanation: "The correct answer is option A."
+                    correctAns: "D",
+                    explanation: "All the options in isolation will enable sustainable economic growth. However, the options combined would lead to sustained economic growth."
                 },
                 {
                     qstId: 2,
                     category: 1,
-                    qstText: "This is the text for question 2.",
-                    optA: "A. This is option A for question 2.",
-                    optB: "B. This is option B for question 2.",
-                    optC: "C. This is option C for question 2.",
-                    optD: "D. This is option D for question 2.",
+                    qstText: "Labor productivity is represented by which of the following?",
+                    optA: "A. The ratio of output to employment.",
+                    optB: "B. Workers per unit of capital.",
+                    optC: "C. Capital oer worker.",
+                    optD: "D. Ratio of output to population.",
                     userInput: null,
-                    correctAns: "B",
-                    explanation: "The correct answer is option B."
+                    correctAns: "A",
+                    explanation: "Labour productivity assesses how efficient employed workers are at producing output. Therefore it can be calculaed as the ratio of output to employment."
                 },
                 {
                     qstId: 3,
                     category: 0,
-                    qstText: "This is the text for question 3.",
-                    optA: "A. This is option A for question 3.",
-                    optB: "B. This is option B for question 3.",
-                    optC: "C. This is option C for question 3.",
-                    optD: "D. This is option D for question 3.",
+                    qstText: "The Beveridge curve will shift downward (toward the origin) if:",
+                    optA: "A. Vacancies are increasingly concentrated in given sector of the economy.",
+                    optB: "B. Vacancies are increasingly concentrated in a geographical region.",
+                    optC: "C. Information about job vacancies improves.",
+                    optD: "D. Unemployment benefits become more generous.",
                     userInput: null,
                     correctAns: "C",
-                    explanation: "The correct answer is option C."
+                    explanation: "The beveridge curve shifts downwards if there exists factors that improve Labour matching efficiency. Only option C would improve Labour matching efficiency."
                 },
                 {
                     qstId: 4,
                     category: 1,
-                    qstText: "This is the text for question 4.",
-                    optA: "A. This is option A for question 4.",
-                    optB: "B. This is option B for question 4.",
-                    optC: "C. This is option C for question 4.",
-                    optD: "D. This is option D for question 4.",
+                    qstText: "In country  X,  GDP  falls from R100billionto R95 billion while  output  per  worker  rises from R5000 to R5020. In this economy there has been:",
+                    optA: "A. An increase in production and a fall in productivity.",
+                    optB: "B. An increase in production and an increase in productivity.",
+                    optC: "C. A fall in production and an increase in productivity.",
+                    optD: "D. A fall in production and a fall in productivity.",
                     userInput: null,
-                    correctAns: "D",
-                    explanation: "The correct answer is option D."
-                },
-                {
-                    qstId: 5,
-                    category: 1,
-                    qstText: "This is the text for question 5.",
-                    optA: "A. This is option A for question 5.",
-                    optB: "B. This is option B for question 5.",
-                    optC: "C. This is option C for question 5.",
-                    optD: "D. This is option D for question 5.",
-                    userInput: null,
-                    correctAns: "A",
-                    explanation: "The correct answer is option A."
+                    correctAns: "C",
+                    explanation: "Changes in output per worker illustrate changes in productivity. Whilst changes in GDP indicate Changes in production."
                 }
+                // {
+                //     qstId: 5,
+                //     category: 1,
+                //     qstText: "Using the figure below, which of the following statements is/are true? [image here] ) In Norway, there is more variation over the business cycle in unemployment than in the vacancy rate.ii)If the Beveridge curve is positively sloped, this indicates a deterioration in matching in the labour market.iii)The Beveridge curve is shifted to the right in highly unionized economies..",
+                //     optA: "A. only i.",
+                //     optB: "B. only ii.",
+                //     optC: "C. only iii.",
+                //     optD: "D. i, ii, iii.",
+                //     userInput: null,
+                //     correctAns: "B",
+                //     explanation: "The correct answer is option B."
+                // }
             ],
             categories: {
                 category_1: 0,
