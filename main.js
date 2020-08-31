@@ -73,7 +73,7 @@ var QuizFormComponent = {
                     qstText: "Labor productivity is represented by which of the following?",
                     optA: "A. The ratio of output to employment.",
                     optB: "B. Workers per unit of capital.",
-                    optC: "C. Capital oer worker.",
+                    optC: "C. Capital per worker.",
                     optD: "D. Ratio of output to population.",
                     userInput: null,
                     correctAns: "A",
