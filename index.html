@@ -42,7 +42,9 @@
             <h1>ECO2004S - Unit 16: Quiz</h1>
 
             <div id="quiz-information">
-                <p>This is a short MCQ designed to help you prepare for Test 1. The questions have been selected from tutorial 3.</p>
+                <p>This is a short MCQ designed to help you revise Unit 16 in preparation for your test. The questions have been selected from tutorial 3.
+                    You can view the answers to the questions and their explanations once you have completed the quiz.
+                </p>
 
                 <p>Topic: Unit 16</p>
                 <p>Number of Questions: 4</p>
@@ -50,7 +52,7 @@
                 <p>Please ensure that you <span><strong>ATTEMPT EVERY QUESTION</strong></span> before you submit the quiz.</p>
             </div>
 
-            <div class="feedback-success" v-if="totalAnswered">
+            <div class="feedback-success" v-if="isCompleted">
                 <p>You've completed the quiz!</p>
                 <p><b>Your total score was {{ totalScore }}/4.</b></p>
                 <p>You can view the answers to the questions, and their explanations, below.</p>            

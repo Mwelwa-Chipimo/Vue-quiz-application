@@ -65,7 +65,7 @@ var QuizFormComponent = {
                     optD: "D. All of the above.",
                     userInput: null,
                     correctAns: "D",
-                    explanation: "All the options in isolation will enable sustainable economic growth. However, the options combined would lead to sustained economic growth."
+                    explanation: "All the options in isolation will not enable sustainable economic growth. However, the options combined would lead to sustained economic growth."
                 },
                 {
                     qstId: 2,
@@ -94,7 +94,7 @@ var QuizFormComponent = {
                 {
                     qstId: 4,
                     category: 1,
-                    qstText: "In country  X,  GDP  falls from R100billionto R95 billion while  output  per  worker  rises from R5000 to R5020. In this economy there has been:",
+                    qstText: "In country X, GDP falls from R100 billion to R95 billion while output per worker rises from R5000 to R5020. In this economy there has been:",
                     optA: "A. An increase in production and a fall in productivity.",
                     optB: "B. An increase in production and an increase in productivity.",
                     optC: "C. A fall in production and an increase in productivity.",
